@@ -141,18 +141,66 @@ Get/categories:
           "success":true
         }
 
+## GET /questions
+## General:
+
+  Returns a list of questions, number of total questions and categories.
+
+  Results are paginated in groups of 10. Include a request argument to choose page number, starting from 1.
+
+  Sample: curl http://127.0.0.1:5000/questions or curl http://127.0.0.1:5000/questions?page=1
+
   
+  "questions":
+  [{"answer":"Apollo 13",
+  "category":5,
+  "difficulty":4,
+  "id":2,
+  "question":"What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"},
+
+  {"answer":"Tom Cruise",
+  "category":5,"difficulty":4
+  ,"id":4,
+  "question":"What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
+  },
+  "success":true,
+  "total_questions":19}
+
+## POST /questions
+## General:
+
+Creates a new question using the submitted question, answer, difficulty and category. Returns the ID of the created question, success value, total questions, and question list based on current page number to update the frontend.
+
+curl http://127.0.0.1:5000/api/questions?page=2 -X POST -H "Content-Type: application/json" -d '{"question":"New 
+Question","answer":"New Answer","difficulty":1,"category":"5"}'
+
+## DELETE /questions/{question_id}
+General:
+Deletes the question of the given ID if it exists. Returns the ID of the deleted question, success value, total questions, and question list based on current page number to update the frontend.
+curl -X DELETE http://127.0.0.1:5000//api/questions/5?page=1
 
 
+## POST /questions/search
+General:
+
+Returns questions based on a search term. It should return any questions for whom the search term is a substring of the question.
+Results are paginated in groups of 10. Include a request argument to choose page number, starting from 1.
+curl http://127.0.0.1:5000/api/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm":"what"}'
 
 
+## GET /api/questions/categories/{category_id}/questions
+General:
+
+Returns a list of questions based on the given category ID. Returns the ID of the current category, success value, total questions, and question list.
+curl http://127.0.0.1:5000/categories/1/questions
 
 
+## POST /quizzes
+General:
 
-
-
-
-
+Returns random questions within the given category to play the quiz. Returns a random question and success value.
+This endpoint should take category and previous question parameters.
+curl http://127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions": [], "quiz_category": {"type": "Science", "id": "1"}}'
 
 
 
