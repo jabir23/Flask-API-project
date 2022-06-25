@@ -102,15 +102,15 @@ createdb trivia_test
 psql trivia_test < trivia.psql
 python test_flaskr.py
 ```
-API Reference
+## API Reference
 
-Getting Started: 
+## Getting Started: 
 
 Base Url: This app can only be run locally and is not hosted. The backend app is hosted at the default
 , http://127.0.0.1:5000/
 Authentication: This version of the appplication does not require authentication or API Keys 
 
-Error Handling 
+## Error Handling 
 
 errors are returned as JSON objects in the following format:
 {
@@ -119,14 +119,14 @@ errors are returned as JSON objects in the following format:
   'message':'resource not found'
 }
 
-ENDPOINTS 
-Get/categories:
+## ENDPOINTS 
+## Get/categories:
 
     returns a dictionary of all available categories and success value
 
     e.g curl:
 
-      http://127.0.0.1:5000/ctegories 
+      http://127.0.0.1:5000/categories 
 
         {
           'categories':
