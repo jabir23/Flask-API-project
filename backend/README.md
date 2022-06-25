@@ -102,3 +102,65 @@ createdb trivia_test
 psql trivia_test < trivia.psql
 python test_flaskr.py
 ```
+API Reference
+
+Getting Started: 
+
+Base Url: This app can only be run locally and is not hosted. The backend app is hosted at the default
+, http://127.0.0.1:5000/
+Authentication: This version of the appplication does not require authentication or API Keys 
+
+Error Handling 
+
+errors are returned as JSON objects in the following format:
+{
+  'success': True,
+  'error': 404,
+  'message':'resource not found'
+}
+
+ENDPOINTS 
+Get/categories:
+
+    returns a dictionary of all available categories and success value
+
+    e.g curl:
+
+      http://127.0.0.1:5000/ctegories 
+
+        {
+          'categories':
+          {
+            "1":"Science",
+            "2":"Art",
+            "3":"Geography",
+            "4":"History",
+            "5":"Entertainment",
+            "6":"Sports"
+          },
+          "success":true
+        }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
